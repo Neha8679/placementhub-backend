@@ -41,10 +41,11 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.POST, "/api/jobs").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.PUT, "/api/jobs/**").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.DELETE, "/api/jobs/**").hasRole("ADMIN")
+                        .requestMatchers("/api/experiences/**").authenticated()
 
                         .requestMatchers(
                                 HttpMethod.POST,
-                                "/api/applications/jobs/*/apply"
+                                "/api/applications/apply/**"
                         ).hasRole("STUDENT")
                         .requestMatchers(
                                 HttpMethod.PUT,
