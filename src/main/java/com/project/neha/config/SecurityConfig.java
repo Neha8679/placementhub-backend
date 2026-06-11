@@ -42,7 +42,7 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.PUT, "/api/jobs/**").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.DELETE, "/api/jobs/**").hasRole("ADMIN")
                         .requestMatchers("/api/experiences/**").authenticated()
-
+                        .requestMatchers("/api/interview-rounds/**").authenticated()
                         .requestMatchers(
                                 HttpMethod.POST,
                                 "/api/applications/apply/**"
