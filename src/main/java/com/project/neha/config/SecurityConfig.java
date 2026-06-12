@@ -29,14 +29,16 @@ public class SecurityConfig {
                 )
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
-                        .requestMatchers(
-                                "/swagger-ui/**",
-                                "/v3/api-docs/**"
-                        ).permitAll()
+
 
                         .requestMatchers("/api/auth/**").permitAll()
 
                         .requestMatchers(HttpMethod.POST, "/api/users").permitAll()
+                        .requestMatchers(
+                                "/swagger-ui/**",
+                                "/v3/api-docs/**",
+                                "/hello"
+                        ).permitAll()
 
                         .requestMatchers(HttpMethod.POST, "/api/jobs").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.PUT, "/api/jobs/**").hasRole("ADMIN")
